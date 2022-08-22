@@ -4,6 +4,7 @@ from collections import defaultdict
 
 answer = 0
 # Leaf 노드를 Call한 Parent 노드에게 가중치를 전달하면서 정답값에 더해준다
+
 def dfs(x,a,tree,visited):
     global answer
     visited[x] = 1
