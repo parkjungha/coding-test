@@ -6,7 +6,7 @@ def solution(queue1, queue2):
     sum1 = sum(q1)
     sum2 = sum(q2)
 
-    for i in range(len(q1)*3): # 최대 반복 횟수(q1 길이 * 3)
+    for i in range(len(q1)*3): # 최대 반복 횟수(q1 길이 * 3) 왜 3일까....?
         if sum1 == sum2:
             return i
         if sum1 > sum2:
