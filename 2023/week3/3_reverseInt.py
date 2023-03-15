@@ -1,6 +1,7 @@
 
 # Runtime 97.39% Memory 54.6%
 
+# string으로 바꿔서 뒤집기 
 class Solution:
     def reverse(self, x: int) -> int:
         sign = -1 if x <0 else 1
