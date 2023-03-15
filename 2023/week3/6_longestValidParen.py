@@ -3,7 +3,7 @@ class Solution:
     # Runtime 90.48% Memory 42.19%
     def longestValidParentheses(self, s: str) -> int:
         max_length = 0
-        stack = [-1]
+        stack = [-1] # 초기화 시작 인덱스를 -1로 !!
         for i in range(len(s)):
             if s[i] == '(':
                 stack.append(i) # index를 추가
@@ -11,8 +11,8 @@ class Solution:
                 stack.pop()
                 if not stack: # stack이 비어있으면(-1가 사라지면): not valid. 현재 인덱스부터 탐색 새로 시작
                     stack.append(i)
-                else: # 비어있지 않으면 valid.
-                    max_length = max(max_length, i-stack[-1]) # 최대 길이 갱신    
+                else: # 비어있지 않으면 (-1가 남아있으면) valid.
+                    max_length = max(max_length, i-stack[-1]) # 최대 길이 갱신 (현재위치 + 1)
         return max_length
     
     # Two pointer: Space O(1)
