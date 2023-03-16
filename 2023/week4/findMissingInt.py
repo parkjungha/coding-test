@@ -18,3 +18,16 @@ class Solution:
             return nums[len(nums)-1] + 1
             
         else: return 1
+
+    # 정렬하면 무조건 time complexity가 O(nlogn) 이구나...
+    # Run 11.54% Mem 7.1%
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        dic = {}
+        for num in nums:
+            if num > 0:
+                dic[num] = num
+        
+        for i in range(1,len(dic)+1):
+            if i not in dic:
+                return i
+        return len(dic)+1
