@@ -6,14 +6,14 @@ class Solution(object):
             if s[:i] == s[:i][::-1] and s[i:] == s[i:][::-1]: # 두조각 다 palindrome이면 cut = 1 반환
                 return 1
       
-        dp = [[0 for i in range(len(s))] for j in range(len(s))] 
+        dp = [[0 for i in range(len(s))] for j in range(len(s))] # s[i:j+1]가 Palindrome인지 나타내는 boolean matrix 
 
         for i in range(len(s)):
             for j in range(i, len(s)):
                 st = s[i:j+1]
                 dp[i][j] = (st == st[::-1])
                       
-        # store minimum number of partition from 0 to i-th char.
+        # store minimum number of cut for s[0:i]
         res = [0 for _ in range(len(s))] # [0, 0, 0, 0, 0, ... ]
         for i in range(1, len(s)):
             if dp[0][i]: # if 0 to i already Palindrom, no need partition
