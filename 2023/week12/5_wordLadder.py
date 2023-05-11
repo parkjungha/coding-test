@@ -1,3 +1,39 @@
+class Solution:
+    # 시간초과 TC 32 / 36 .. 흠
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+        if endWord not in wordList: return []
+
+        neighbors = defaultdict(list)
+        wordList.append(beginWord)
+
+        for word in wordList: # 모든 단어들에 대해서 
+            for i in range(len(word)): # 단어의 각 문자에 대해서
+                pattern = word[:i] + "*" + word[i+1:] # replace each character in word with "*"
+                neighbors[pattern].append(word)
+
+        # BFS 
+        visited = set([beginWord])
+        q = deque()
+        q.append((beginWord, [beginWord])) # (current word, path)
+        ans = []
+        wordList = set(wordList) # 중복 제거
+
+        while q:
+            for i in range(len(q)):
+                word, seq = q.popleft()
+                if word == endWord: # target word와 일치
+                    ans.append(seq) 
+
+                for i in range(len(word)): # 일치 X
+                    pattern = word[:i] + "*" + word[i+1:]
+                    for cand in neighbors[pattern]: # 가능한 neighbor
+                        if cand in wordList: # wordlist에 존재하면
+                            visited.add(cand)
+                            q.append((cand, seq+[cand]))
+            wordList -= visited
+            
+        return ans
+
 # wordList = ["hot","dot","dog","lot","log","cog"]
 # beginWord = 'hit', endWord = 'cog'
 
