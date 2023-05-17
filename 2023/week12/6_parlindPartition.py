@@ -1,4 +1,5 @@
 class Solution(object):
+    ##############################네이버DP문제#################################################
     def minCut(self, s):
         if s == s[::-1]: return 0 # 이미 palindrome 이면 cut = 0 반환
         
