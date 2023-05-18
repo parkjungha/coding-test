@@ -1,5 +1,5 @@
 class Solution:
-    # O(n^2) 단순 풀이 - TC 44에서 시간초과
+    # O(n^2) 단순 풀이 - TC 44에서 시간초과 하하
     def candy(self, ratings: List[int]) -> int:
         candies = [1]*len(ratings) # Each child must have at least one candy.
        
@@ -18,7 +18,7 @@ class Solution:
 
         return sum(candies)
 
-    # 앞에서부터 한번 검사 뒤에서부터 한번 검사 O(n) 두번
+    # 앞에서부터 한번 검사, 뒤에서부터 한번 검사 O(n) 두번만
     # Run 36.14% (175ms) Mem 25.78% (19.3MB)
     def candy(self, ratings: List[int]) -> int:
         candies = [1]*len(ratings)
