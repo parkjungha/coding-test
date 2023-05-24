@@ -11,6 +11,7 @@ class Solution:
                 if ratings[i-1] < ratings[i] and candies[i-1] >= candies[i]:
                     candies[i] += 1
                     condition = False
+                    
                 elif ratings[i-1] > ratings[i] and candies[i-1] <= candies[i]:
                     candies[i-1] += 1
                     condition = False

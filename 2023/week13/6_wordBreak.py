@@ -7,6 +7,7 @@ class Solution:
         def dfs(i):
             if i == n:
                 res.append(" ".join(tmp))
+                
             for j in range(i,n):
                 if s[i:j+1] in wordSet: # 유효한 단어이면
                     tmp.append(s[i:j+1])
