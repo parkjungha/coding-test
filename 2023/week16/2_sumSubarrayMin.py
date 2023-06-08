@@ -28,6 +28,8 @@ class Solution:
         return res % (10**9+7)
 
 
+
+# 시간초과 
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
         res = 0

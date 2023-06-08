@@ -43,3 +43,32 @@ class Solution:
                     dfs(i,j,trie) # DFS 탐색
         
         return res
+
+# DFS로 한칸 갈때마다 계속 매칭 되는 word 있는지 확인
+# TC 21 시간초과
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        def dfs(x, y, currWord, visited):
+            currWord += board[x][y]
+            visited[x][y] = 1
+
+            if currWord in words:
+                ans.add(currWord)
+            dx = [-1,1,0,0]
+            dy = [0,0,-1,1]
+
+            for i in range(4):
+                nx = x+dx[i]
+                ny = y+dy[i]
+                if 0<=nx<len(board) and 0<=ny<len(board[0]) and not visited[nx][ny]:
+                    dfs(nx, ny, currWord, visited)
+            visited[x][y] = 0
+
+        firstchar = set([word[0] for word in words]) # 첫글자 담음
+        ans = set()
+        words = set(words)
+        visited = [[0]*len(board[0]) for _ in range(len(board))]
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                if board[i][j] in firstchar: 
+                    dfs(i, j, "", visited)
+        return list(ans)
