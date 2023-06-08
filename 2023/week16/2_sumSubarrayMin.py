@@ -1,4 +1,5 @@
 class Solution:
+    # 그냥 이중 for문으로 풀었을 때 TC77에서 시간 초과 -> 
     # Monotonic Stack 모든 원소들이 오름차순(혹은 내림차순)을 유지하도록 하는 스택 구조
 
     # Run 81.91% (456ms) Mem 50.59% (20.8MB)
@@ -25,3 +26,23 @@ class Solution:
             res += prevsum
         
         return res % (10**9+7)
+
+
+class Solution:
+    def sumSubarrayMins(self, arr: List[int]) -> int:
+        res = 0
+        minVal = arr[0]
+
+        for i in range(len(arr)):
+            minVal = min(minVal, arr[i])
+            res += minVal
+        
+        minVal = float('inf')
+        for i in range(1, len(arr)):
+            for j in range(i, len(arr)):
+                minVal = min(minVal, arr[j])
+                res += minVal
+            minVal = float('inf')
+        
+        return res % (10**9+7)
+    
