@@ -2,7 +2,7 @@ class Solution:
     # BFS -> Queue 사용
     # Runtime 83.69% (110ms) Memory 90.41% (17.7MB)
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        # 모든 노드(course)들이 이어져 있으면 True, 아니면 False
+        # 연결된 노드간 cycle이 있는지 판별 
         graph = [[] for i in range(numCourses)] # adjacency matrix
         for i,j in prerequisites:
             graph[i].append(j) # directed edge. i를 듣고 나서 j를 들어야한다. i->j
