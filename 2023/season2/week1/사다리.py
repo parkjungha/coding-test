@@ -1,4 +1,6 @@
 import heapq
+# 각 격자칸의 높이가 담긴 2차원 배열 land와 이동 가능한 최대 높이차 height가 매개변수로 주어질 때,
+# 모든 칸을 방문하기 위해 필요한 사다리 설치 비용의 최솟값을 return
 
 def solution(land, height):
     N = len(land)
@@ -36,10 +38,12 @@ def solution(land, height):
 			
             next_height = land[nx][ny] # 다음 칸 높이
             diff = abs(next_height - curr_height) # 현재 칸과 다음 칸의 높이 차이
+
             if diff > height: # 차이가 height보다 크면 
                 heapq.heappush( # 사다리 설치
                     queue, (diff, nx, ny)) # (비용, x좌표, y좌표)
             
             else: # 사다리 필요없다면 비용 0으로 넣어줌
                 heapq.heappush(queue, (0, nx, ny))
+
     return cost
