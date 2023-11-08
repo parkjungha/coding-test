@@ -24,7 +24,7 @@ def solution(target):
     for i in range(1, target + 1):
         for j in range(2): # 싱글/불로 만들수 있는 점수와, 싱글/불로 만들 수 없는 점수 각각에 대해서
             for k in range(len(score_table[j])):
-                prev = i - score_table[j][k] # 남은 첨수
+                prev = i - score_table[j][k] # 남은 점수
 
                 if prev < 0:
                     continue
