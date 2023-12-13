@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/1033
 
 n = int(input())
 pairs = [[] for _ in range(n)] # n-1개의 재료 쌍 비율 정보

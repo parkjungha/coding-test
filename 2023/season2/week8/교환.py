@@ -1,3 +1,5 @@
+# https://www.acmicpc.net/problem/1039
+
 from collections import deque
 
 N, K = map(int, input().split())
@@ -35,3 +37,5 @@ def bfs(N, K):
     return answer if answer else -1
 
 print(bfs(N, K))
+
+#https://westmino.tistory.com/87
